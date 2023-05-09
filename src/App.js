@@ -26,10 +26,6 @@ handleNature=()=>{this.setState((prevState)=>{
 });
 };
 
-
-   
-
-
 handleBad=()=>{this.setState((prevState)=>{
     return{
         bad:prevState.bad+1
@@ -37,14 +33,11 @@ handleBad=()=>{this.setState((prevState)=>{
 });
 };
 
-
 countTotalFeedback=()=>
     this.state.good+this.state.neutral+this.state.bad
 
 countPositiveFeedbackPercentage=()=>
 Math.round(this.state.good/(this.countTotalFeedback())*100);
-
-
 
 render(){
   return (
@@ -54,7 +47,6 @@ render(){
  handleGood={this.handleGood}
  handleNature={this.handleNature}
  handleBad={this.handleBad}
- 
  
  />
 </Section>
@@ -73,10 +65,5 @@ render(){
 )
 }
 }
-
-
-
-  
-
 
 export default App;
