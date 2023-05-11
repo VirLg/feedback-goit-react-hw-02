@@ -6,47 +6,45 @@ import {FeedbackOptions} from './components/feedbackOptions/FeedbackOptions';
 
  class App extends React.Component {
 state={
-    good:0,
-    neutral:0,
-    bad:0,
+    good: 0,
+    neutral: 0,
+    bad: 0,
 }
 
-handleGood=()=>{
+handleClick=({target:{name}})=>{
+    
+    // const{target:{name:{good,neutral,bad}}}=evt
         this.setState((prevState)=>{
         return{
-            good:prevState.good+1
+            [name]:prevState[name]+1
             }
         });
     };
     
-handleNature=()=>{this.setState((prevState)=>{
-    return{
-        neutral:prevState.neutral+1
-    }
-});
-};
 
-handleBad=()=>{this.setState((prevState)=>{
-    return{
-        bad:prevState.bad+1
-    }
-});
-};
 
-countTotalFeedback=()=>
-    this.state.good+this.state.neutral+this.state.bad
 
-countPositiveFeedbackPercentage=()=>
-Math.round(this.state.good/(this.countTotalFeedback())*100);
+countTotalFeedback=()=>{
+    const{good,neutral,bad}=this.state
+   return good+neutral+bad
+}
+
+countPositiveFeedbackPercentage=()=>{
+const{good}=this.state
+return Math.round(good/(this.countTotalFeedback())*100);
+}
 
 render(){
+
+
+
+    
   return (
     <>
  <Section>
  <FeedbackOptions
- handleGood={this.handleGood}
- handleNature={this.handleNature}
- handleBad={this.handleBad}
+ handleClick={this.handleClick}
+
  
  />
 </Section>

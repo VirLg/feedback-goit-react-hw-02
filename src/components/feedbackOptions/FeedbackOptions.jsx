@@ -1,10 +1,10 @@
-export const FeedbackOptions=function({handleGood,handleBad,handleNature}){
+export const FeedbackOptions=function({handleClick}){
     return(
         
 <div>
-<button type="button"onClick={handleGood}>Good</button>
-<button type="button"onClick={handleNature}>Nature</button>
-<button type="button"onClick={handleBad}>Bad</button>
+<button name="good" type="button"onClick={handleClick}>Good</button>
+<button name="neutral" type="button"onClick={handleClick}>Neutral</button>
+<button name="bad" type="button"onClick={handleClick}>Bad</button>
 </div>
     )
 }
